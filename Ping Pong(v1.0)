@@ -1,6 +1,8 @@
 from pygame import *
+
  
- 
+
+
 class GameSprite(sprite.Sprite):
    def __init__(self, player_image, player_x, player_y, player_speed, wight, height): #THIS CHANGES
        super().__init__()  #THIS CHANGES
@@ -27,19 +29,21 @@ class Player(GameSprite):
        if keys[K_s] and self.rect.y < win_height - 80:
            self.rect.y += self.speed
  
+
+
+
  
- 
- 
- 
- 
-back = (200, 255, 255) #background colour
-win_width = 600
-win_height = 500
+back =(69,139,116)
+
+
+  #background colour
+
+win_width = 1000
+win_height = 600
 window = display.set_mode((win_width, win_height))
 window.fill(back) 
- 
- 
- 
+
+
 game = True
 finish = False
 clock = time.Clock()
@@ -47,12 +51,12 @@ FPS = 60
  
  
 racket1 = Player('racket.png', 0, 200, 4, 50, 150) 
-racket2 = Player('racket.png', 550, 200, 4, 50, 150)
+racket2 = Player('racket.png', 950, 200, 4, 50, 150)
 ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
  
  
-speed_x=3
-speed_y=3
+speed_x=8
+speed_y=8
 font.init()
 font = font.Font(None, 35)
 lose1 = font.render('PLAYER 1 LOSE!', True, (180, 0, 0))
@@ -79,10 +83,10 @@ while game:
            speed_y *= -1
        if ball.rect.x < -40:
            finish = True
-           window.blit(lose1, (200, 200))
-       if ball.rect.x > 590  :
+           window.blit(lose1, (400, 200))
+       if ball.rect.x > 990  :
            finish = True
-           window.blit(lose2, (200, 200))
+           window.blit(lose2, (400, 200))
        
 
        
